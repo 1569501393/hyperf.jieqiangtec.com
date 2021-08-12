@@ -20,7 +20,8 @@ return [
             'name' => 'http',
             'type' => Server::SERVER_HTTP,
             'host' => '0.0.0.0',
-            'port' => 9501,
+            // 'port' => 9501,
+            'port' => 9509,
             'sock_type' => SWOOLE_SOCK_TCP,
             'callbacks' => [
                 Event::ON_REQUEST => [Hyperf\HttpServer\Server::class, 'onRequest'],
