@@ -1,7 +1,7 @@
 <?php
 
 $header = <<<'EOF'
-This file is part of Hyperf.
+This file is part of Hyperf-2021.
 
 @link     https://www.hyperf.io
 @document https://hyperf.wiki

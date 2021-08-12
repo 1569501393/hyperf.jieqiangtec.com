@@ -18,3 +18,9 @@ Router::addRoute(['GET', 'POST', 'HEAD'], '/', [IndexController::class, 'index']
 Router::get('/favicon.ico', function () {
     return '';
 });
+
+Router::get('/index', function () {
+    // return (date('Y-m-d H:i:s'));
+    // return date('Y-m-d H:i:s');
+    return ['date' => date('Y-m-d H:i:s'), 'rand' => mt_rand(1000, 9999)];
+});
