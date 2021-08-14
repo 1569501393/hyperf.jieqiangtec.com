@@ -13,6 +13,9 @@ namespace App\Controller;
 
 class IndexController extends AbstractController
 {
+    /**
+     * @return array
+     */
     public function index()
     {
         $user = $this->request->input('user', 'Hyperf');
