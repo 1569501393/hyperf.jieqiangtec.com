@@ -9,6 +9,7 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
+use App\Controller\DbController;
 use App\Controller\IndexController;
 use App\Controller\TestController;
 use Hyperf\HttpServer\Router\Router;
@@ -21,8 +22,6 @@ Router::get('/favicon.ico', function () {
 });
 
 Router::get('/index', function () {
-    // return (date('Y-m-d H:i:s'));
-    // return date('Y-m-d H:i:s');
     return ['date' => date('Y-m-d H:i:s'), 'rand' => mt_rand(1000, 9999)];
 });
 
@@ -34,4 +33,9 @@ Router::addGroup('/test', function () {
     Router::patch('/index', [TestController::class, 'indexPatch']);
     Router::delete('/index', [TestController::class, 'indexDelete']);
     Router::head('/index', [TestController::class, 'indexHead']);
+});
+
+// 路由组
+Router::addGroup('/db', function () {
+    Router::get('/index', [DbController::class, 'index']);
 });

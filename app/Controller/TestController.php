@@ -29,7 +29,7 @@ class TestController extends AbstractController
         $user->name = 'jieqiang';
         $user->age = 18;
         // dd('$user===', $user, $user->age);
-        return ['method' => $method, 'request' => $request];
+        return ['method' => $method, 'request' => $request, 'user' => $user];
     }
 
     /**
