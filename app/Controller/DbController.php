@@ -22,7 +22,77 @@ class DbController extends AbstractController
      */
     public function index()
     {
-        $text = Text::query()->where('id', 1)->first(['id', 'name']);
+        $text = Text::query()->get(['id', 'name']);
+        // dd('$text===', $text);
+
+        return ['text' => $text];
+    }
+
+    /**
+     * @param mixed $id
+     * @return array
+     *
+     * http://hyperf.qltech.test/db/1
+     */
+    public function show($id)
+    {
+        // $text = Text::query()->where('id', intval($id))->first(['id', 'name']);
+        $text = Text::query()->find($id, ['id', 'name']);
+        // dd('$text===', $text);
+
+        return ['text' => $text];
+    }
+
+    /**
+     * @return array
+     */
+    public function create()
+    {
+        $values['name'] = $this->request->query('name', '');
+        $values['title'] = $this->request->query('title', '');
+        $values['desc'] = $this->request->query('desc', '');
+        $text = Text::query()->insertGetId($values);
+        // dd('$text===', $text);
+
+        return ['text' => $text];
+    }
+
+    /**
+     * @param mixed $id
+     * @return array
+     */
+    public function update($id)
+    {
+        // $text = Text::query()->where('id', 1)->first(['id', 'name']);
+        $values['name'] = $this->request->query('name', '');
+        $values['title'] = $this->request->query('title', '');
+        $values['desc'] = $this->request->query('desc', '');
+        $text = Text::query()->where('id', $id)->update($values);
+        // dd('$text===', $text);
+
+        return ['text' => $text];
+    }
+
+    /**
+     * @param mixed $id
+     * @return array
+     */
+    public function destory($id)
+    {
+        // $text = Text::query()->where('id', 1)->first(['id', 'name']);
+        $text = Text::query()->where('id', $id)->delete();
+        // dd('$text===', $text);
+
+        return ['text' => $text];
+    }
+
+    /**
+     * @param mixed $id
+     * @return array
+     */
+    public function edit($id)
+    {
+        $text = Text::query()->where('id', $id)->first(['id', 'name']);
         // dd('$text===', $text);
 
         return ['text' => $text];

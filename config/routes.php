@@ -36,6 +36,25 @@ Router::addGroup('/test', function () {
 });
 
 // 路由组
-Router::addGroup('/db', function () {
-    Router::get('/index', [DbController::class, 'index']);
+Router::addGroup('/v1', function () {
+    Router::addGroup('/texts', function () {
+        Router::get('', [DbController::class, 'index']);
+        Router::get('/{id}', [DbController::class, 'show']);
+        Router::get('/{id}/edit', [DbController::class, 'edit']);
+        Router::post('', [DbController::class, 'create']);
+        Router::put('/{id}', [DbController::class, 'update']);
+        Router::patch('/{id}', [DbController::class, 'update']);
+        Router::delete('/{id}', [DbController::class, 'destory']);
+    });
 });
+
+/*Router::addGroup('/texts', function () {
+    Router::get('', [DbController::class, 'index']);
+    Router::get('/{id}', [DbController::class, 'show']);
+    Router::get('/{id}/edit', [DbController::class, 'edit']);
+    Router::post('', [DbController::class, 'create']);
+    Router::put('', [DbController::class, 'update']);
+    Router::patch('', [DbController::class, 'update']);
+    Router::delete('', [DbController::class, 'destory']);
+});*/
+
