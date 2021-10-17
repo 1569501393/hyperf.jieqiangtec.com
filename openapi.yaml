@@ -1,0 +1,24 @@
+openapi: 3.0.0
+paths:
+  '/users/{id}':
+    put:
+      summary: 'Updates a user'
+      operationId: f999bacb7d5fe1d1d5b3b69b22b3490e
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Parameter with mutliple examples'
+          required: true
+          schema:
+            type: string
+          examples:
+            int:
+              summary: 'An int value.'
+              value: '1'
+            uuid:
+              summary: 'An UUID value.'
+              value: 0006faf6-7a61-426c-9034-579f2cfcfa83
+      responses:
+        '200':
+          description: OK

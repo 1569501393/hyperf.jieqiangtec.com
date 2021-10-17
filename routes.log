@@ -1,0 +1,50 @@
+qltech@6bbea5193417:/workspace/test/hyperf.jieqiangtec.com$ php bin/hyperf.php describe:routes >> routes.log
+
+[DEBUG] Event Hyperf\Framework\Event\BootApplication handled by Hyperf\Config\Listener\RegisterPropertyHandlerListener listener.
+[DEBUG] Event Hyperf\Framework\Event\BootApplication handled by Hyperf\ExceptionHandler\Listener\ExceptionHandlerListener listener.
+[DEBUG] Event Hyperf\Framework\Event\BootApplication handled by Hyperf\DbConnection\Listener\RegisterConnectionResolverListener listener.
++--------+---------------+---------------------+----------------------------------------------+------------+
+| Server | Method        | URI                 | Action                                       | Middleware |
++--------+---------------+---------------------+----------------------------------------------+------------+
+| http   | GET|POST|HEAD | /router/indexGet    | App\Controller\RouterController::indexGet    |            |
++--------+---------------+---------------------+----------------------------------------------+------------+
+| http   | GET|POST|HEAD | /router/indexPost   | App\Controller\RouterController::indexPost   |            |
++--------+---------------+---------------------+----------------------------------------------+------------+
+| http   | GET|POST|HEAD | /router/indexPut    | App\Controller\RouterController::indexPut    |            |
++--------+---------------+---------------------+----------------------------------------------+------------+
+| http   | GET|POST|HEAD | /router/indexPatch  | App\Controller\RouterController::indexPatch  |            |
++--------+---------------+---------------------+----------------------------------------------+------------+
+| http   | GET|POST|HEAD | /router/indexDelete | App\Controller\RouterController::indexDelete |            |
++--------+---------------+---------------------+----------------------------------------------+------------+
+| http   | GET|POST|HEAD | /router/indexHead   | App\Controller\RouterController::indexHead   |            |
++--------+---------------+---------------------+----------------------------------------------+------------+
+| http   | GET|POST|HEAD | /                   | App\Controller\IndexController::index        |            |
++--------+---------------+---------------------+----------------------------------------------+------------+
+| http   | GET           | /favicon.ico        | Closure                                      |            |
++--------+---------------+---------------------+----------------------------------------------+------------+
+| http   | GET           | /index              | Closure                                      |            |
++--------+---------------+---------------------+----------------------------------------------+------------+
+| http   | GET           | /test/index         | App\Controller\TestController::indexGet      |            |
++--------+---------------+---------------------+----------------------------------------------+------------+
+| http   | GET           | /v1/texts           | App\Controller\DbController::index           |            |
++--------+---------------+---------------------+----------------------------------------------+------------+
+| http   | POST          | /test/index         | App\Controller\TestController::indexPost     |            |
++--------+---------------+---------------------+----------------------------------------------+------------+
+| http   | POST          | /v1/texts           | App\Controller\DbController::create          |            |
++--------+---------------+---------------------+----------------------------------------------+------------+
+| http   | HEAD          | /test/index         | App\Controller\TestController::indexHead     |            |
++--------+---------------+---------------------+----------------------------------------------+------------+
+| http   | PUT           | /test/index         | App\Controller\TestController::indexPut      |            |
++--------+---------------+---------------------+----------------------------------------------+------------+
+| http   | PATCH         | /test/index         | App\Controller\TestController::indexPatch    |            |
++--------+---------------+---------------------+----------------------------------------------+------------+
+| http   | DELETE        | /test/index         | App\Controller\TestController::indexDelete   |            |
++--------+---------------+---------------------+----------------------------------------------+------------+
+| http   | GET           | /v1/texts/{id}      | App\Controller\DbController::show            |            |
++--------+---------------+---------------------+----------------------------------------------+------------+
+| http   | GET           | /v1/texts/{id}/edit | App\Controller\DbController::edit            |            |
++--------+---------------+---------------------+----------------------------------------------+------------+
+| http   | PUT|PATCH     | /v1/texts/{id}      | App\Controller\DbController::update          |            |
++--------+---------------+---------------------+----------------------------------------------+------------+
+| http   | DELETE        | /v1/texts/{id}      | App\Controller\DbController::destory         |            |
++--------+---------------+---------------------+----------------------------------------------+------------+
