@@ -1,4 +1,128 @@
-> 此文件是 [项目文档编写规范](https://learnku.com/courses/laravel-specification/524/project-documentation-specification) 的 readme 编写范例，点击 [我要改进](https://learnku.com/courses/articles/523/patches/create) 即可查看其 Markdown 内容。
+## 项目概述
+
+* 产品名称：轻岚后台管理系统
+* 项目代号：admin
+* 官方地址：https://git.qinglan.vip/ad/admin
+
+## 运行环境要求
+
+- php7.4+
+
+## 开发环境部署/安装
+
+### 基础安装
+
+#### 1. 克隆源代码
+
+克隆源代码到本地：
+
+    > git clone git@git.qinglan.vip:ad/admin.git
+
+#### 2. 生成配置文件
+
+```
+cp .env.example .env
+```
+
+你可以根据情况修改 `.env` 文件里的内容，如数据库连接、缓存 等(本地开发默认即可)：
+
+```
+# db
+DB_DRIVER=mysql
+DB_HOST=mysql8
+DB_PORT=3306
+DB_DATABASE=admin
+DB_USERNAME=root
+DB_PASSWORD=root
+DB_CHARSET=utf8mb4
+DB_COLLATION=utf8mb4_general_ci
+DB_PREFIX=
+```
+
+#### 3. 启动服务
+
+```bash
+php bin/hyperf.php start
+```
+
+### 链接入口
+
+* 首页地址：<http://localhost:9501>
+
+至此, 安装完成。
+
+## 生成模型文件
+
+```bash
+php bin/hyperf.php gen:model --with-comments table_name
+
+可选参数如下：
+
+参数	类型	默认值	备注
+--pool	string	default	连接池，脚本会根据当前连接池配置创建
+--path	string	app/Model	模型路径
+--force-casts	bool	false	是否强制重置 casts 参数
+--prefix	string	空字符串	表前缀
+--inheritance	string	Model	父类
+--uses	string	Hyperf\DbConnection\Model\Model	配合 inheritance 使用
+--refresh-fillable	bool	false	是否刷新 fillable 参数
+--table-mapping	array	[]	为表名 -> 模型增加映射关系 比如 ['users:Account']
+--ignore-tables	array	[]	不需要生成模型的表名 比如 ['users']
+--with-comments	bool	false	是否增加字段注释
+--property-case	int	0	字段类型 0 蛇形 1 驼峰
+
+jieqiang@DESKTOP-0BFKOSK: ~/qldev/workspace/test/hyperf.jieqiangtec.com test ⚡ $ php bin/hyperf.php gen:model --help                                                                                                                        [11:01:33]
+[DEBUG] Event Hyperf\Framework\Event\BootApplication handled by Hyperf\Config\Listener\RegisterPropertyHandlerListener listener.
+[DEBUG] Event Hyperf\Framework\Event\BootApplication handled by Hyperf\ExceptionHandler\Listener\ExceptionHandlerListener listener.
+[DEBUG] Event Hyperf\Framework\Event\BootApplication handled by Hyperf\DbConnection\Listener\RegisterConnectionResolverListener listener.
+Usage:
+  gen:model [options] [--] [<table>]
+
+Arguments:
+  table                                Which table you want to associated with the Model.
+
+Options:
+  -p, --pool[=POOL]                    Which connection pool you want the Model use. [default: "default"]
+      --path[=PATH]                    The path that you want the Model file to be generated.
+  -F, --force-casts                    Whether force generate the casts for model.
+  -P, --prefix[=PREFIX]                What prefix that you want the Model set.
+  -i, --inheritance[=INHERITANCE]      The inheritance that you want the Model extends.
+  -U, --uses[=USES]                    The default class uses of the Model.
+  -R, --refresh-fillable               Whether generate fillable argement for model.
+  -M, --table-mapping[=TABLE-MAPPING]  Table mappings for model. (multiple values allowed)
+      --ignore-tables[=IGNORE-TABLES]  Ignore tables for creating models. (multiple values allowed)
+      --with-comments                  Whether generate the property comments for model.
+      --with-ide                       Whether generate the ide file for model.
+      --visitors[=VISITORS]            Custom visitors for ast traverser. (multiple values allowed)
+      --property-case[=PROPERTY-CASE]  Which property case you want use, 0: snake case, 1: camel case.
+      --enable-event-dispatcher        Whether enable event dispatcher.
+  -h, --help                           Display help for the given command. When no command is given display help for the list command
+  -q, --quiet                          Do not output any message
+  -V, --version                        Display this application version
+      --ansi|--no-ansi                 Force (or disable --no-ansi) ANSI output
+  -n, --no-interaction                 Do not ask any interactive question
+  -v|vv|vvv, --verbose                 Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+
+
+[2021-11-17 11:07:57] sql.INFO: [1.27] select `column_key` as `column_key`, `column_name` as `column_name`, `data_type` as `data_type`, `column_comment` as `column_comment`, `extra` as `extra`, `column_type` as `column_type` from information_schema
+.columns where `table_schema` = 'yugua' and `table_name` = 'withdraw_order' order by ORDINAL_POSITION [] []
+[DEBUG] Event Hyperf\Database\Events\QueryExecuted handled by App\Listener\DbQueryExecutedListener listener.
+[DEBUG] Event Hyperf\Database\Model\Events\Booting handled by Hyperf\ModelListener\Listener\ModelHookEventListener listener.
+[DEBUG] Event Hyperf\Database\Model\Events\Booting handled by Hyperf\ModelListener\Listener\ModelEventListener listener.
+[DEBUG] Event Hyperf\Database\Model\Events\Booted handled by Hyperf\ModelListener\Listener\ModelHookEventListener listener.
+[DEBUG] Event Hyperf\Database\Model\Events\Booted handled by Hyperf\ModelListener\Listener\ModelEventListener listener.
+Model App\Model\YuGua\WithdrawOrder was created.
+
+```
+
+## 单元测试
+
+```bash
+composer test -- --filter=testExample
+```
+
+
+> > 此文件是 [项目文档编写规范](https://learnku.com/courses/laravel-specification/524/project-documentation-specification) 的 readme 编写范例，点击 [我要改进](https://learnku.com/courses/articles/523/patches/create) 即可查看其 Markdown 内容。
 
 ## 项目概述
 

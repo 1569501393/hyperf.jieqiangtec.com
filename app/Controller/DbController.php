@@ -37,10 +37,13 @@ class DbController extends AbstractController
     public function show($id)
     {
         // $text = Text::query()->where('id', intval($id))->first(['id', 'name']);
-        $text = Text::query()->find($id, ['id', 'name']);
+        // $text = Text::query()->find($id, ['id', 'name']);
+        // $text = Text::query()->whereKey($id)->find($id);
+        // $text = Text::query()->whereKey($id)->first($id);
+        $text = Text::query()->whereKey($id)->value('id');
         // dd('$text===', $text);
 
-        return ['text' => $text];
+        return ['text11' => $text];
     }
 
     /**

@@ -9,9 +9,9 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
-use App\Controller\DbController;
 use App\Controller\IndexController;
 use App\Controller\TestController;
+use App\Controller\DbController;
 use Hyperf\HttpServer\Router\Router;
 
 // Router::addRoute(['GET', 'POST', 'HEAD'], '/', 'App\Controller\IndexController@index');
@@ -36,18 +36,23 @@ Router::addGroup('/test', function () {
 });
 
 // 路由组
-Router::addGroup('/v1', function () {
-    Router::addGroup('/texts', function () {
+Router::addGroup('/v1', 'texts');
+
+// 路由组
+Router::addGroup('/v2', 'texts');
+
+function texts()
+{
+    return Router::addGroup('/texts', function () {
         Router::get('', [DbController::class, 'index']);
         Router::get('/{id}', [DbController::class, 'show']);
-        Router::get('/{id}/edit', [DbController::class, 'edit']);
+        // Router::get('/{id}/edit', [DbController::class, 'edit']);
         Router::post('', [DbController::class, 'create']);
         Router::put('/{id}', [DbController::class, 'update']);
         Router::patch('/{id}', [DbController::class, 'update']);
         Router::delete('/{id}', [DbController::class, 'destory']);
     });
-});
-
+}
 /*Router::addGroup('/texts', function () {
     Router::get('', [DbController::class, 'index']);
     Router::get('/{id}', [DbController::class, 'show']);
@@ -57,4 +62,3 @@ Router::addGroup('/v1', function () {
     Router::patch('', [DbController::class, 'update']);
     Router::delete('', [DbController::class, 'destory']);
 });*/
-
