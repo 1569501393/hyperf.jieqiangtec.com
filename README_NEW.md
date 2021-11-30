@@ -122,7 +122,27 @@ composer test -- --filter=testExample
 ```
 
 
-> > 此文件是 [项目文档编写规范](https://learnku.com/courses/laravel-specification/524/project-documentation-specification) 的 readme 编写范例，点击 [我要改进](https://learnku.com/courses/articles/523/patches/create) 即可查看其 Markdown 内容。
+> > > 此文件是 [项目文档编写规范](https://learnku.com/courses/laravel-specification/524/project-documentation-specification) 的 readme 编写范例，点击 [我要改进](https://learnku.com/courses/articles/523/patches/create) 即可查看其 Markdown 内容。
+
+## 修改 git 远程 url
+```shell
+root@SKY-20191125ANA:~/qldev/workspace/test/hyperf.jieqiangtec.com-bak# vim .git/config
+[core]
+    repositoryformatversion = 0
+    filemode = true
+    bare = false
+    logallrefupdates = true
+[remote "origin"]
+    url = https://github.com/1569501393/hyperf.jieqiangtec.com.git
+    fetch = +refs/heads/*:refs/remotes/origin/*
+    pushurl = git@github.com:1569501393/hyperf.jieqiangtec.com.git
+[branch "main"]
+    remote = origin
+    merge = refs/heads/main
+[branch "test"]
+    remote = origin
+    merge = refs/heads/test
+```
 
 ## 项目概述
 
