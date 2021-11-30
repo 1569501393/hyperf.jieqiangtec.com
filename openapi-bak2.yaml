@@ -1,0 +1,11 @@
+openapi: 3.0.0
+info:
+  title: 'My First API'
+  version: '0.1'
+paths:
+  /:
+    get:
+      operationId: bc20c14122d7beddc69f3fe3612828c6
+      responses:
+        '200':
+          description: 'An example resource'
