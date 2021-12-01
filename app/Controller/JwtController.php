@@ -71,6 +71,10 @@ class JwtController extends AbstractController
         // $jwtEncode = $jwtManager::encode($payload);
         dump($jwtEncode);
 
+        // 加入黑名单
+        $this->jwtManager->invalidate($jwtEncode);
+
+        // 获取 accessToken
         $accessToken = $jwtEncode->get();
         dump('$accessToken==', $accessToken, $this->jwt->getToken());
 
