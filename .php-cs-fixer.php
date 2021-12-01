@@ -39,17 +39,18 @@ return (new PhpCsFixer\Config())
         ],
         'concat_space' => [
             'spacing' => 'one',
-        ],
+        ], // .拼接必须有空格分割
         'blank_line_before_statement' => [
             'statements' => [
                 'declare',
             ],
-        ],
+        ], // 空行换行必须在任何已配置的语句之前
         'general_phpdoc_annotation_remove' => [
             'annotations' => [
                 'author',
             ],
         ],
+        // 按顺序use导入
         'ordered_imports' => [
             'imports_order' => [
                 'class', 'function', 'const',
@@ -75,19 +76,19 @@ return (new PhpCsFixer\Config())
             'case' => 'lower',
         ],
         'class_attributes_separation' => true,
-        'combine_consecutive_unsets' => true,
+        'combine_consecutive_unsets' => true, // 当多个 unset 使用的时候，合并处理
         'declare_strict_types' => true,
         'linebreak_after_opening_tag' => true,
         'lowercase_static_reference' => true,
-        'no_useless_else' => true,
+        'no_useless_else' => true, // 删除没有使用的else节点
         'no_unused_imports' => true,
         'not_operator_with_successor_space' => true,
         'not_operator_with_space' => false,
         'ordered_class_elements' => true,
         'php_unit_strict' => false,
-        'phpdoc_separation' => false,
-        'single_quote' => true,
-        'standardize_not_equals' => true,
+        'phpdoc_separation' => false, // 不同注释部分按照单空行隔开
+        'single_quote' => true, //简单字符串应该使用单引号代替双引号
+        'standardize_not_equals' => true, //使用 <> 代替 !=
         'multiline_comment_opening_closing' => true,
     ])
     ->setFinder(

@@ -34,6 +34,8 @@ use HyperfTest\HttpTestCase;
  */
 class JwtHyperfTest extends HttpTestCase
 {
+
+
     public function testJwtHyperfEncode()
     {
         // $jwt = ApplicationContext::getContainer()->get(\HyperfExt\Jwt\Jwt::class);

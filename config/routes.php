@@ -10,6 +10,7 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 use App\Controller\IndexController;
+use App\Controller\JwtController;
 use App\Controller\TestController;
 use App\Controller\DbController;
 use Hyperf\HttpServer\Router\Router;
@@ -33,6 +34,12 @@ Router::addGroup('/test', function () {
     Router::patch('/index', [TestController::class, 'indexPatch']);
     Router::delete('/index', [TestController::class, 'indexDelete']);
     Router::head('/index', [TestController::class, 'indexHead']);
+});
+
+// 路由组
+Router::addGroup('/jwt', function () {
+    Router::get('/encode', [JwtController::class, 'encode']);
+    Router::get('/decode', [JwtController::class, 'decode']);
 });
 
 // 路由组
